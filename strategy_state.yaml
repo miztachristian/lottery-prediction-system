@@ -1,0 +1,47 @@
+# Strategy State - Iterative Learning Memory
+# This file is updated automatically after Post-Mortem analysis
+
+current_week: 1
+last_update: "2025-12-13"
+
+# Anchor Configurations
+# NOTE: Anchor pairs should not share numbers to avoid overlap issues
+anchors:
+  xl:
+    # Changed [21, 44] to [22, 44] to avoid overlap with [20, 21]
+    pairs: [[9, 10], [20, 21], [32, 33], [22, 44]]
+    weights: [1.0, 1.0, 1.0, 1.0]  # Probability of using each pair
+    usage_rate: 0.8  # % of tickets that must use an anchor pair
+  
+  lotto:
+    singles: [21, 23, 40, 41, 44]
+    weights: [1.0, 1.0, 1.0, 1.0, 1.0]
+    usage_rate: 0.7
+
+# Number Classification (Dynamic)
+classification:
+  hot_movers: []  # Will be filled by system based on recent frequency
+  cold_overdue: [] # Will be filled by system
+  neutral: []
+
+# Structural Constraints
+constraints:
+  odd_even_balance: 
+    target: "3-3"
+    tolerance: 1  # Allow 4-2 or 2-4 occasionally
+  
+  sum_range:
+    min: 100
+    max: 200
+    
+  distribution:
+    low_bound: 15   # 1-15
+    mid_bound: 30   # 16-30
+    high_bound: 45  # 31-45
+    target_ratio: [0.33, 0.33, 0.33] # Ideal split
+
+# Aggression Settings
+composition:
+  conservative: 0.4  # 40% of tickets (Strict adherence to stats)
+  balanced: 0.4      # 40% of tickets (Mix)
+  aggressive: 0.2    # 20% of tickets (Riskier clusters/cold numbers)

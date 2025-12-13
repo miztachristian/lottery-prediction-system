@@ -1,0 +1,78 @@
+# Production Configuration for Netherlands Lottery Prediction System
+
+# Email Settings
+email:
+  enabled: true
+  smtp_server: "smtp.gmail.com"  # Change to your SMTP server
+  smtp_port: 587
+  use_tls: true
+  sender_email: "your-email@gmail.com"  # CHANGE THIS
+  sender_password: "your-app-password"  # CHANGE THIS - Use app-specific password
+  recipient_email: "your-email@gmail.com"  # CHANGE THIS
+  subject: "🎯 Netherlands Lotto Predictions - {date}"
+
+# Lottery Settings
+lottery:
+  game: "xl"  # "xl" or "lotto"
+  csv_path: "nl_lotto_xl_history.csv"
+  
+  # Ticket Generation Strategy
+  tickets:
+    total: 24  # Total tickets to generate
+    coverage: 16  # Broader statistical coverage (67%)
+    convergence: 8  # Aggressive cluster stacking (33%)
+  
+  # Prize Tier Optimization (focus on 100k+ wins)
+  optimization:
+    target_prize: 100000  # Target prize in euros
+    # Tier 1 (6+1): ~€1-5M
+    # Tier 2 (6+0): ~€100-500k
+    # Tier 3 (5+1): ~€10-50k
+    focus_tiers: [1, 2]  # Focus on top 2 tiers
+    
+  # Anchor Strategy (XL-specific)
+  anchors:
+    xl_pairs: [[9, 10], [20, 21], [32, 33], [21, 44]]
+    xl_singles: [9, 10, 20, 21, 32, 33, 44]
+    lotto_numbers: [21, 23, 40, 41, 44]
+    rotation_enabled: true  # Rotate anchors across tickets
+
+# Model Settings (Enhanced Deep Learning)
+model:
+  lookback: 20  # Historical sequence length
+  epochs: 100  # Training epochs (increased for deeper model)
+  batch_size: 8  # Smaller batches for better gradient updates
+  val_size: 0.2  # 20% validation split
+  
+# Data Update Settings
+data_update:
+  auto_update: true  # Auto-update data before prediction
+  sources: ["lotteryguru", "lotteryextreme"]  # Data sources
+  max_pages: 15  # Pages to scrape per source
+  min_draws: 50  # Minimum draws required
+
+# Scheduling
+schedule:
+  enabled: false  # Enable for automated runs
+  # Run every Wednesday and Saturday at 6 PM (before draw)
+  cron: "0 18 * * 3,6"  # Min Hour Day Month DayOfWeek
+  timezone: "Europe/Amsterdam"
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "logs/lotto_predictions.log"
+  console: true
+  max_file_size_mb: 10
+  backup_count: 5
+
+# Backup Settings
+backup:
+  enabled: true
+  directory: "backups"
+  keep_last: 10  # Keep last N prediction sets
+
+# Security
+security:
+  encrypt_config: false  # Encrypt sensitive data (requires cryptography package)
+  mask_numbers_in_logs: true  # Don't log actual predictions to file
