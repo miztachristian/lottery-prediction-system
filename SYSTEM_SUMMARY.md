@@ -113,8 +113,8 @@ tickets_dict = gen.generate(
 - ✓ Non-anchor diversity (prevent ticket duplication)
 
 **Ticket Philosophy**:
-- **Coverage (70%)**: Broad statistical spread, mixed anchors, hot + overdue rotation
-- **Convergence (30%)**: Aggressive cluster stacking, multiple anchors, designed for variance
+- **Coverage (67%)**: Broad statistical spread, mixed anchors, hot + overdue rotation
+- **Convergence (33%)**: Aggressive cluster stacking, multiple anchors, designed for variance
 
 ### ✅ Backtest Engine (`backtest_engine.py`)
 
@@ -306,12 +306,12 @@ Expected Output:
 
 ### Expected Outcomes
 
-**Coverage tickets (70%)**:
+**Coverage tickets (67%)**:
 - ~30-35% of weeks have 3+ match
 - ~8-10% of weeks have 4+ match
 - ~1-2% of weeks have 5+ match
 
-**Convergence tickets (30%)**:
+**Convergence tickets (33%)**:
 - Designed for variance
 - Occasional 5-6 hits
 - Frequent failures (offset by coverage wins)

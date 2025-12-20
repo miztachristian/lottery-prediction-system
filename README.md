@@ -13,9 +13,9 @@ A production-ready ML-based lottery prediction system for Netherlands Lotto and 
    - Low (1-15) / Mid (16-30) / High (31-45) spread
    - Anchor inclusion
 
-3. **Two-Tier Strategy**
-   - **Coverage Tickets (70%)**: Broad statistical coverage, consistent 3-4 hit potential
-   - **Convergence Tickets (30%)**: Aggressive cluster stacking, designed for €10k+ outcomes
+3. **Two-Tier Strategy** (24 tickets: 16 coverage + 8 convergence)
+   - **Coverage Tickets (67%)**: Broad statistical coverage, consistent 3-4 hit potential
+   - **Convergence Tickets (33%)**: Aggressive cluster stacking, designed for €100k+ outcomes
 
 4. **Dynamic Hot/Cold Stats**: 
    - Hot numbers: frequent in recent draws (bias toward in tickets)

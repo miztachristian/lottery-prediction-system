@@ -124,9 +124,9 @@ python main.py --csv nl_lotto_xl_history.csv --game xl --predict --epochs 30
 
 | Profile | Coverage | Convergence | 3-Hit Rate | 5-Hit Rate | Use When |
 |---------|----------|-------------|-----------|-----------|----------|
-| **A: Safe** | 18 | 2 | 35-45% | 0.5-1% | Want consistency |
-| **B: Aggressive** | 6 | 10 | 25-30% | 1-2% | Chase big wins |
-| **C: Balanced** | 12 | 4 | 30-35% | 0.8-1.2% | **Recommended** |
+| **A: Safe** | 20 | 4 | 35-45% | 0.5-1% | Want consistency |
+| **B: Aggressive** | 8 | 16 | 25-30% | 1-2% | Chase big wins |
+| **C: Balanced** | 16 | 8 | 30-35% | 0.8-1.2% | **Recommended** (Default) |
 
 ---
 
