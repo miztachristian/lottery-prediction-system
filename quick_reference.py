@@ -108,7 +108,7 @@ hot, cold = data.compute_hot_cold(recent_window=25)  # Longer window
 tickets_dict = gen.generate(
     main_probs,
     num_coverage=0,  # No coverage
-    num_convergence=24,  # All high-variance
+    num_convergence=24,  # All convergence (high-variance strategy)
     hot_numbers=hot,
     cold_numbers=cold
 )
