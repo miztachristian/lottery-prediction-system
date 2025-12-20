@@ -316,8 +316,8 @@ class TicketGenerator:
     def generate(
         self,
         probabilities: np.ndarray,
-        num_coverage: int = 12,
-        num_convergence: int = 4,
+        num_coverage: int = 16,
+        num_convergence: int = 8,
         hot_numbers: Set[int] = None,
         cold_numbers: Set[int] = None,
     ) -> Dict[str, List[List[int]]]:

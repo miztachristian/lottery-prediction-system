@@ -145,7 +145,7 @@ from main import LottoSystem
 
 system = LottoSystem("nl_lotto_xl_history.csv")
 system.train(epochs=30)
-tickets, probs, _ = system.predict(num_coverage=12, num_convergence=4)
+tickets, probs, _ = system.predict(num_coverage=16, num_convergence=8)
 
 for ticket in tickets['coverage']:
     print(f"Ticket: {ticket}")

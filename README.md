@@ -159,14 +159,14 @@ Average Match: 2.47 per ticket
 ```python
 system = LottoSystem(csv_path, game="xl")
 system.train(lookback=25, epochs=50)  # Longer history, more training
-tickets, _, _ = system.predict(num_coverage=15)  # More coverage tickets
+tickets, _, _ = system.predict(num_coverage=20)  # More coverage tickets
 ```
 
 ### To Target 5+6 Wins
 
 ```python
 # Increase convergence tickets (more aggressive cluster stacking)
-tickets, _, _ = system.predict(num_coverage=8, num_convergence=8)
+tickets, _, _ = system.predict(num_coverage=12, num_convergence=12)
 ```
 
 ### To Adjust Anchor Bias
@@ -219,7 +219,7 @@ model = build_model(lookback=20)
 
 # Generate tickets with custom constraints
 gen = TicketGenerator()
-tickets = gen.generate(probs, num_coverage=20, num_convergence=0)
+tickets = gen.generate(probs, num_coverage=24, num_convergence=0)
 
 # Evaluate
 engine = BacktestEngine()

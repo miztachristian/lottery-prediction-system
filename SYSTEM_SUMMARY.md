@@ -98,8 +98,8 @@ config = TicketConfig(game="xl", ticket_type="coverage")
 gen = TicketGenerator(config)
 tickets_dict = gen.generate(
     probabilities=main_probs,
-    num_coverage=12,
-    num_convergence=4,
+    num_coverage=16,
+    num_convergence=8,
     hot_numbers=hot,
     cold_numbers=cold
 )
@@ -222,7 +222,7 @@ from main import LottoSystem
 
 system = LottoSystem("nl_lotto_xl_history.csv", game="xl")
 system.train(epochs=40)
-tickets, probs, _ = system.predict(num_coverage=12, num_convergence=4)
+tickets, probs, _ = system.predict(num_coverage=16, num_convergence=8)
 
 # Custom backtest
 engine = system.backtest(lookback=20, epochs=20, start_tail=50)
