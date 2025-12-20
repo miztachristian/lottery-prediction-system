@@ -24,8 +24,8 @@ This document explains how to tune the lottery system for different objectives:
 
 | Parameter | Default | Effect | Tuning |
 |-----------|---------|--------|--------|
-| `num_coverage` | 12 | Coverage tickets (70% strategy) | ↑ = more "safe" tickets |
-| `num_convergence` | 4 | Convergence tickets (30% strategy) | ↑ = more aggressive tickets |
+| `num_coverage` | 16 | Coverage tickets (67% strategy) | ↑ = more "safe" tickets |
+| `num_convergence` | 8 | Convergence tickets (33% strategy) | ↑ = more aggressive tickets |
 | `allow_nonanchor_repeat` | False | Repeat non-anchor numbers across tickets? | True = more overlap |
 | `prefer_hot` | True | Bias toward recently hot numbers? | False = more random |
 | `prefer_overdue` | True | Include overdue in support slots? | False = stick with hot |

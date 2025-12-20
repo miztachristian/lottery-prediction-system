@@ -98,7 +98,7 @@ class LottoSystem:
 
         print(f"\n✓ Training complete")
 
-    def predict(self, num_coverage: int = 12, num_convergence: int = 4):
+    def predict(self, num_coverage: int = 16, num_convergence: int = 8):
         """Generate tickets using trained model."""
         if self.model is None:
             raise ValueError("Must train model first with .train()")
@@ -136,8 +136,8 @@ class LottoSystem:
         return tickets_dict, main_probs, reserve_probs
 
     def backtest(self, lookback: int = 20, epochs: int = 20, batch_size: int = 64,
-                 val_size: int = 24, start_tail: int = None, num_coverage: int = 12,
-                 num_convergence: int = 4):
+                 val_size: int = 24, start_tail: int = None, num_coverage: int = 16,
+                 num_convergence: int = 8):
         """Run rolling backtest."""
         print(f"\n{'='*70}")
         print(f"BACKTEST")
@@ -257,8 +257,8 @@ def main():
                         help="Use only last N draws for backtest (speed)")
 
     # Ticket generation
-    parser.add_argument("--num_coverage", type=int, default=12, help="Coverage tickets")
-    parser.add_argument("--num_convergence", type=int, default=4, help="Convergence tickets")
+    parser.add_argument("--num_coverage", type=int, default=16, help="Coverage tickets")
+    parser.add_argument("--num_convergence", type=int, default=8, help="Convergence tickets")
 
     args = parser.parse_args()
 

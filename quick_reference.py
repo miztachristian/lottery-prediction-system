@@ -15,8 +15,8 @@ from main import LottoSystem
 system = LottoSystem("nl_lotto_xl_history.csv", game="xl")
 system.train(epochs=30)
 tickets, main_probs, reserve_probs = system.predict(
-    num_coverage=12, 
-    num_convergence=4
+    num_coverage=16, 
+    num_convergence=8
 )
 
 # Expected output:
@@ -34,8 +34,8 @@ engine = system.backtest(
     epochs=15,  # Lower for speed
     batch_size=64,
     start_tail=50,  # Only last 50 draws
-    num_coverage=12,
-    num_convergence=4
+    num_coverage=16,
+    num_convergence=8
 )
 
 # Expected output:
@@ -108,7 +108,7 @@ hot, cold = data.compute_hot_cold(recent_window=25)  # Longer window
 tickets_dict = gen.generate(
     main_probs,
     num_coverage=0,  # No coverage
-    num_convergence=16,  # All high-variance
+    num_convergence=24,  # All convergence (high-variance strategy)
     hot_numbers=hot,
     cold_numbers=cold
 )

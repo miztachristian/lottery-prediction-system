@@ -98,8 +98,8 @@ config = TicketConfig(game="xl", ticket_type="coverage")
 gen = TicketGenerator(config)
 tickets_dict = gen.generate(
     probabilities=main_probs,
-    num_coverage=12,
-    num_convergence=4,
+    num_coverage=16,
+    num_convergence=8,
     hot_numbers=hot,
     cold_numbers=cold
 )
@@ -113,8 +113,8 @@ tickets_dict = gen.generate(
 - ✓ Non-anchor diversity (prevent ticket duplication)
 
 **Ticket Philosophy**:
-- **Coverage (70%)**: Broad statistical spread, mixed anchors, hot + overdue rotation
-- **Convergence (30%)**: Aggressive cluster stacking, multiple anchors, designed for variance
+- **Coverage (67%)**: Broad statistical spread, mixed anchors, hot + overdue rotation
+- **Convergence (33%)**: Aggressive cluster stacking, multiple anchors, designed for variance
 
 ### ✅ Backtest Engine (`backtest_engine.py`)
 
@@ -222,7 +222,7 @@ from main import LottoSystem
 
 system = LottoSystem("nl_lotto_xl_history.csv", game="xl")
 system.train(epochs=40)
-tickets, probs, _ = system.predict(num_coverage=12, num_convergence=4)
+tickets, probs, _ = system.predict(num_coverage=16, num_convergence=8)
 
 # Custom backtest
 engine = system.backtest(lookback=20, epochs=20, start_tail=50)
@@ -306,12 +306,12 @@ Expected Output:
 
 ### Expected Outcomes
 
-**Coverage tickets (70%)**:
+**Coverage tickets (67%)**:
 - ~30-35% of weeks have 3+ match
 - ~8-10% of weeks have 4+ match
 - ~1-2% of weeks have 5+ match
 
-**Convergence tickets (30%)**:
+**Convergence tickets (33%)**:
 - Designed for variance
 - Occasional 5-6 hits
 - Frequent failures (offset by coverage wins)

@@ -13,9 +13,9 @@ A production-ready ML-based lottery prediction system for Netherlands Lotto and 
    - Low (1-15) / Mid (16-30) / High (31-45) spread
    - Anchor inclusion
 
-3. **Two-Tier Strategy**
-   - **Coverage Tickets (70%)**: Broad statistical coverage, consistent 3-4 hit potential
-   - **Convergence Tickets (30%)**: Aggressive cluster stacking, designed for €10k+ outcomes
+3. **Two-Tier Strategy** (24 tickets: 16 coverage + 8 convergence)
+   - **Coverage Tickets (67%)**: Broad statistical coverage, consistent 3-4 hit potential
+   - **Convergence Tickets (33%)**: Aggressive cluster stacking, designed for €100k+ outcomes
 
 4. **Dynamic Hot/Cold Stats**: 
    - Hot numbers: frequent in recent draws (bias toward in tickets)
@@ -159,14 +159,14 @@ Average Match: 2.47 per ticket
 ```python
 system = LottoSystem(csv_path, game="xl")
 system.train(lookback=25, epochs=50)  # Longer history, more training
-tickets, _, _ = system.predict(num_coverage=15)  # More coverage tickets
+tickets, _, _ = system.predict(num_coverage=20)  # More coverage tickets
 ```
 
 ### To Target 5+6 Wins
 
 ```python
 # Increase convergence tickets (more aggressive cluster stacking)
-tickets, _, _ = system.predict(num_coverage=8, num_convergence=8)
+tickets, _, _ = system.predict(num_coverage=12, num_convergence=12)
 ```
 
 ### To Adjust Anchor Bias
@@ -219,7 +219,7 @@ model = build_model(lookback=20)
 
 # Generate tickets with custom constraints
 gen = TicketGenerator()
-tickets = gen.generate(probs, num_coverage=20, num_convergence=0)
+tickets = gen.generate(probs, num_coverage=24, num_convergence=0)
 
 # Evaluate
 engine = BacktestEngine()
