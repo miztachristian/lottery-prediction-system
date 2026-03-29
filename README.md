@@ -290,4 +290,4 @@ For issues or improvements, consider:
 
 ---
 
-**Disclaimer**: Lottery games are inherently random. This system optimizes ticket structure within probabilistic bounds but does not guarantee wins. Play responsibly.
+**Disclaimer**: Lottery games are inherently random.  Play responsibly.
