@@ -83,14 +83,6 @@ With our 3-if-4 wheel:
 3. **Mathematical Certainty**: The guarantee is proven by combinatorial design theory
 4. **Long-Term Strategy**: Consistency over 20+ weeks lets the math work
 
-## What We Removed
-
-The following obsolete strategies were removed:
-- ❌ ML prediction models (no better than random)
-- ❌ "Hot/Cold" number analysis (statistical illusion)
-- ❌ Anchor-based systems (failed repeatedly)
-- ❌ Reduced pool strategies (missed outliers)
-- ❌ Cloud deployment configs (unnecessary)
 
 ## Weekly Workflow
 
